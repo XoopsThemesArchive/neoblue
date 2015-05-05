@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta name="generator" content="XOOPS" />
+<title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_themecss}>" />
+
+<!-- RMV: added module header -->
+<{$xoops_module_header}>
+<script type="text/javascript">
+<!--
+<{$xoops_js}>
+//-->
+</script>
+<script type="text/javascript">
+</script>
+<script type="text/javascript" src="<{$xoops_imageurl}>js/adminmenu.js"></script>
+<script type="text/javascript" src="<{$xoops_imageurl}>js/ie5.js"></script>
+<script type="text/javascript">
+
+function toggle(notifs_form) 
+{
+obj=document.getElementById(notifs_form);
+obj.style.display=!(obj.style.display=="block")? "block" : "none";  
+}
+
+function swapimage(swap)
+{
+img_plus="<{$xoops_imageurl}>images/plus.gif";
+img_minus="<{$xoops_imageurl}>images/minus.gif";
+obj=document.getElementById(swap);
+obj.src=!(obj.src==img_minus)? img_minus : img_plus;  
+}
+
+</script>
+</head>
+<body>
+<div class="wrapper">
+<div id="neoblueheader">
+<div class="headerlogo_l">&nbsp;</div>
+<div class="headerlogo_r">&nbsp;</div>
+<div class="headerlogo_c">
+<h1><a href="<{$xoops_url}>/" title="<{$xoops_sitename}>"><{$xoops_sitename}></a></h1>
+</div>
+</div>
+<div id="navsections">
+<ul>
+<li><a href="<{$xoops_url}>"><{$smarty.const._MA_MENU_HOME}></a></li>
+<li><a href="<{$xoops_url}>/modules/news"><{$smarty.const._MA_MENU_NEWS}></a></li>
+<li><a href="<{$xoops_url}>/modules/newbb"><{$smarty.const._MA_MENU_FORUMS}></a></li>
+<li><a href="<{$xoops_url}>/modules/mylinks"><{$smarty.const._MA_MENU_LINKS}></a></li>
+<li><a href="<{$xoops_url}>/modules/works"><{$smarty.const._MA_MENU_PORTFOLIO}></a></li>
+<li><a href="<{$xoops_url}>/modules/contact"><{$smarty.const._MA_MENU_CONTACT}></a></li>
+</ul></div>
+<div id="headerbar"><{include file="neoblue/navigation/theme_usernav.html"}></div>
+<table class="maintable" cellspacing="0">
+	<tr>
+		<!-- Display left blocks start-->
+		<{if $xoops_showlblock == 1}>
+		<td id="leftcolumn">
+			 <!-- Start left blocks loop -->
+			<{foreach item=block from=$xoops_lblocks}>
+		<{include file="neoblue/blocks/theme_blockleft.html"}>
+			<{/foreach}>
+			<!-- End left blocks loop -->
+		</td>
+		<{/if}>
+		<!-- Display left blocks end -->
+		<td id="centercolumn">
+			<!-- Display center blocks if any -->
+			<{if $xoops_showcblock == 1}>
+				<table cellspacing="0">
+				<tr>
+					<td id="centerCcolumn" colspan="2">
+							<!-- Start center-center blocks loop -->
+						<{foreach item=block from=$xoops_ccblocks}>
+						<{include file="neoblue/blocks/theme_blockcenter_c.html"}>
+						<{/foreach}>
+						<!-- End center-center blocks loop -->
+					</td>
+				</tr>
+				<tr>
+					<td id="centerLcolumn">
+							<!-- Start center-left blocks loop -->
+						<{foreach item=block from=$xoops_clblocks}>
+						<{include file="neoblue/blocks/theme_blockcenter_l.html"}>
+						<{/foreach}>
+						<!-- End center-left blocks loop -->
+					</td>
+						<td id="centerRcolumn">
+						<!-- Start center-right blocks loop -->
+						<{foreach item=block from=$xoops_crblocks}>
+						<{include file="neoblue/blocks/theme_blockcenter_r.html"}>
+						<{/foreach}>
+						<!-- End center-right blocks loop -->
+					</td>
+				</tr>
+				</table>
+			<{/if}>
+			<!-- End display center blocks -->
+			<div id="content">
+			<{$xoops_contents}>
+			</div>
+	</td>
+		<!-- Display right blocks start-->
+	<{if $xoops_showrblock == 1}>
+		<td id="rightcolumn">
+			<!-- Start right blocks loop -->
+			<{foreach item=block from=$xoops_rblocks}>
+		<{include file="neoblue/blocks/theme_blockright.html"}>
+			<{/foreach}>
+			<!-- End right blocks loop -->
+	</td>
+		<{/if}>
+		<!-- Display right blocks end-->
+	</tr>
+</table>
+<div id="footerbar"><{$xoops_banner}><{$xoops_footer}> | <{*please do not remove it*}>Theme by <a href="http://www.miguanajuato.com" target="_blank">Guanajuato</a><{*please do not remove it*}></div>
+</div>
+<script type="text/javascript">
+	var menu1 = new AdMenu("menu1");
+	menu1.position.level1.top = 1;
+		menu1.position.level1.left = 0;
+	menu1.position.levelX.top = 0;
+		menu1.position.levelX.left = 0;
+	menu1.init();
+</script>
+<!-- USER NAVIGATION BAR END -->
+</body>
+</html>
